@@ -16,4 +16,5 @@ dbus-monitor --session "type='signal',interface='org.gnome.ScreenSaver'" |
       ;;
       *"boolean false"*) echo SCREEN_UNLOCKED "$(date +%Y%m%d%H%M%S)" >> $LOGFILE;;
     esac
+    sleep 1
   done
