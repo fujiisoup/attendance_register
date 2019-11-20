@@ -1,4 +1,11 @@
-LOGFILE=~/automation/login_logout.csv
+#!/bin/bash
+
+LOGFILE=login_logout.csv
+
+# exit if another instance of this script is running
+for pid in $(pidof -x `basename $0`); do
+   [ $pid != $$ ] && { exit 1; }
+done
 
 dbus-monitor --session "type='signal',interface='org.gnome.ScreenSaver'" |
   while read x; do

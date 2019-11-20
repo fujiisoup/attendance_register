@@ -31,10 +31,12 @@ This account file should be named as `kyoto-u.account`
 The first line should be your SPS-ID, (e.g. taro123yamada) and the second line should be your password.
 
 #### shell script
-4. Register this script in your startup, e.g., `.profile`.
+4. Register this script in your startup, e.g., `.bashrc`.  
+Note that this script automatically terminates if another instance is already running.
+Therefore it may be safer to execute this script every login.
 
-I added the following line to `.profile`,
+I added the following line to `.bashrc`,
 ```
-bash ~/automation/login_monitor.sh &
+~/automation/login_monitor.sh &
 ```
 (I put these script in `~/automation/`)
