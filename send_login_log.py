@@ -89,8 +89,8 @@ def register_login(userid, password, last_logout=None):
         driver.get(url)
         time.sleep(2)
         print(driver.current_url)
-        driver.find_element_by_name("remarks").send_keys('logout time {}:{}:'.format(
-            hour, minutes, second))
+        driver.find_element_by_name("remarks").send_keys(
+            'actual departure time {}:{}:{}'.format(hour, minutes, second))
         driver.find_element_by_id("timecard_button_save").click()
 
         with open(LOG_FILE, 'a') as f:
