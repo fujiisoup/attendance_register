@@ -104,6 +104,7 @@ if __name__ == '__main__':
     is_force_register = sys.argv[3].lower() == 'true'
 
     is_first_login, first_login, last_logout = check_first_login(login_log)
+    print(is_first_login, first_login, last_logout)
     if is_first_login or is_force_register:
         # read accout information
         with open(account_info, 'r') as f:
