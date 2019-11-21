@@ -1,15 +1,18 @@
 # Automatic attendance logging for Kyoto university
 
-With this script, the attendance logging is automatically made based on
-+ arrival will be registered when unlock the screen of your computer for the first time in each day
-+ departure time will be registered when you lock the screen last time in each day
+This script enables the attendance logging automatically.
+
++ the time unlock your computer for the first time in each day is the *arrival time*
++ the time you lock the screen last time in each day is the *departure time*
 
 ## Limitation
 
-This script only works in ubuntu/debian computers and only in KUINS network.
+This script only works in ubuntu/debian computers and only in KUINS network.  
+Only one OS-dependent part is [login_monitor.sh](./login_monitor.sh), which detects the screen lock / unlock and start a python script [send_login_log.py](./send_login_log.py).  
+The python script should work in any OS, but not the shell script. Any contribution is wellcome.
 
 This script cannot know when is the last screen lock until the end of the day.
-Therefore, this cannot click the `depature` botton.
+Therefore, this cannot click the *depature* botton in time.
 Instead, it just adds a note for the departure time.
 
 ## Motivation
@@ -25,8 +28,7 @@ Let's automate.
 2. gecko driver for firefox: downlad driver from https://github.com/mozilla/geckodriver/releases and copy it under `/usr/local/bin/`
 
 ### Account information
-3. put your account information in the same directory of the script
-
+3. put your account information in the same directory of the script  
 This account file should be named as `kyoto-u.account`
 The first line should be your SPS-ID, (e.g. taro123yamada) and the second line should be your password.
 
@@ -39,4 +41,4 @@ I added the following line to `.bashrc`,
 ```
 ~/automation/login_monitor.sh &
 ```
-(I put these script in `~/automation/`)
+(I put these scripts in `~/automation/`)
